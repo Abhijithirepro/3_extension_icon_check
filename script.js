@@ -1,734 +1,1215 @@
+// Comprehensive AI Extension & Tool Detection System
+// Based on extensive web research of popular AI tools in 2024-2025
+
+// Enhanced AI Extensions and Tools Database
+const AI_EXTENSIONS_DATABASE = {
+    // Major AI Sidebars & Browser Extensions
+    sider: {
+        name: 'Sider AI',
+        category: 'ai',
+        keywords: ['sider', 'sider-ai', 'vidline', 'chat-gpt-sidebar'],
+        selectors: ['[class*="sider"]', '[id*="sider"]', '[data-sider]'],
+        domains: ['sider.ai']
+    },
+    monica: {
+        name: 'Monica AI',
+        category: 'ai',
+        keywords: ['monica', 'monica-ai', 'monicahq'],
+        selectors: ['[class*="monica"]', '[id*="monica"]', '[data-monica]'],
+        domains: ['monica.im']
+    },
+    chatgpt_writer: {
+        name: 'ChatGPT Writer',
+        category: 'ai',
+        keywords: ['chatgpt-writer', 'chatgptwriter'],
+        selectors: ['[class*="chatgpt-writer"]', '[id*="chatgpt-writer"]'],
+        domains: ['chatgptwriter.ai']
+    },
+    maxai: {
+        name: 'MaxAI',
+        category: 'ai',
+        keywords: ['maxai', 'max-ai'],
+        selectors: ['[class*="maxai"]', '[id*="maxai"]', '[data-maxai]'],
+        domains: ['maxai.me']
+    },
+    merlin: {
+        name: 'Merlin AI',
+        category: 'ai',
+        keywords: ['merlin', 'merlin-ai', 'getmerlin'],
+        selectors: ['[class*="merlin"]', '[id*="merlin"]', '[data-merlin]'],
+        domains: ['getmerlin.in']
+    },
+    tinamind: {
+        name: 'TinaMind',
+        category: 'ai',
+        keywords: ['tinamind', 'tina-mind'],
+        selectors: ['[class*="tinamind"]', '[id*="tinamind"]'],
+        domains: ['tinamind.com']
+    },
+    chathub: {
+        name: 'ChatHub',
+        category: 'ai',
+        keywords: ['chathub', 'chat-hub'],
+        selectors: ['[class*="chathub"]', '[id*="chathub"]'],
+        domains: ['chathub.gg']
+    },
+    sidebargpt: {
+        name: 'SidebarGPT',
+        category: 'ai',
+        keywords: ['sidebargpt', 'sidebar-gpt'],
+        selectors: ['[class*="sidebargpt"]', '[id*="sidebargpt"]'],
+        domains: ['sidebargpt.com']
+    },
+    perplexity: {
+        name: 'Perplexity AI',
+        category: 'ai',
+        keywords: ['perplexity', 'perplexity-ai'],
+        selectors: ['[class*="perplexity"]', '[id*="perplexity"]'],
+        domains: ['perplexity.ai']
+    },
+    wordtune: {
+        name: 'Wordtune AI',
+        category: 'ai',
+        keywords: ['wordtune', 'word-tune'],
+        selectors: ['[class*="wordtune"]', '[id*="wordtune"]'],
+        domains: ['wordtune.com']
+    },
+    liner: {
+        name: 'Liner AI',
+        category: 'ai',
+        keywords: ['liner', 'liner-ai', 'getliner'],
+        selectors: ['[class*="liner"]', '[id*="liner"]'],
+        domains: ['getliner.com']
+    },
+    writesonic: {
+        name: 'Writesonic AI',
+        category: 'ai',
+        keywords: ['writesonic', 'write-sonic'],
+        selectors: ['[class*="writesonic"]', '[id*="writesonic"]'],
+        domains: ['writesonic.com']
+    },
+    answerai: {
+        name: 'Answer AI',
+        category: 'ai',
+        keywords: ['answerai', 'answer-ai'],
+        selectors: ['[class*="answerai"]', '[id*="answerai"]'],
+        domains: ['answerai.com']
+    },
+    harpa: {
+        name: 'HARPA AI',
+        category: 'ai',
+        keywords: ['harpa', 'harpa-ai'],
+        selectors: ['[class*="harpa"]', '[id*="harpa"]'],
+        domains: ['harpa.ai']
+    },
+    otter: {
+        name: 'Otter AI',
+        category: 'ai',
+        keywords: ['otter', 'otter-ai', 'otterai'],
+        selectors: ['[class*="otter"]', '[id*="otter"]'],
+        domains: ['otter.ai']
+    },
+    compose: {
+        name: 'Compose AI',
+        category: 'ai',
+        keywords: ['compose', 'compose-ai', 'composeai'],
+        selectors: ['[class*="compose"]', '[id*="compose"]'],
+        domains: ['compose.ai']
+    },
+    seamless: {
+        name: 'Seamless AI',
+        category: 'ai',
+        keywords: ['seamless', 'seamless-ai'],
+        selectors: ['[class*="seamless"]', '[id*="seamless"]'],
+        domains: ['seamless.ai']
+    },
+    grammarly: {
+        name: 'Grammarly AI',
+        category: 'ai',
+        keywords: ['grammarly', 'grammarly-ai'],
+        selectors: ['[class*="grammarly"]', '[id*="grammarly"]', '[data-grammarly]'],
+        domains: ['grammarly.com']
+    },
+    questionai: {
+        name: 'QuestionAI',
+        category: 'ai',
+        keywords: ['questionai', 'question-ai'],
+        selectors: ['[class*="questionai"]', '[id*="questionai"]'],
+        domains: ['questionai.com']
+    },
+    superpower_chatgpt: {
+        name: 'Superpower ChatGPT',
+        category: 'ai',
+        keywords: ['superpower', 'superpower-chatgpt'],
+        selectors: ['[class*="superpower"]', '[id*="superpower"]'],
+        domains: ['superpowerchatgpt.com']
+    },
+    bardeen: {
+        name: 'Bardeen AI',
+        category: 'ai',
+        keywords: ['bardeen', 'bardeen-ai'],
+        selectors: ['[class*="bardeen"]', '[id*="bardeen"]'],
+        domains: ['bardeen.ai']
+    },
+    magical: {
+        name: 'Magical AI',
+        category: 'ai',
+        keywords: ['magical', 'magical-ai'],
+        selectors: ['[class*="magical"]', '[id*="magical"]'],
+        domains: ['magical.so']
+    },
+    jasper: {
+        name: 'Jasper AI',
+        category: 'ai',
+        keywords: ['jasper', 'jasper-ai'],
+        selectors: ['[class*="jasper"]', '[id*="jasper"]'],
+        domains: ['jasper.ai']
+    },
+    copyleaks: {
+        name: 'Copyleaks',
+        category: 'ai',
+        keywords: ['copyleaks', 'copyleak'],
+        selectors: ['[class*="copyleaks"]', '[id*="copyleaks"]'],
+        domains: ['copyleaks.com']
+    },
+    wiseone: {
+        name: 'Wiseone',
+        category: 'ai',
+        keywords: ['wiseone', 'wise-one'],
+        selectors: ['[class*="wiseone"]', '[id*="wiseone"]'],
+        domains: ['wiseone.io']
+    },
+    engage: {
+        name: 'Engage AI',
+        category: 'ai',
+        keywords: ['engage', 'engage-ai'],
+        selectors: ['[class*="engage"]', '[id*="engage"]'],
+        domains: ['engage-ai.co']
+    },
+    voila: {
+        name: 'Voilà',
+        category: 'ai',
+        keywords: ['voila', 'getvoila'],
+        selectors: ['[class*="voila"]', '[id*="voila"]'],
+        domains: ['getvoila.ai']
+    },
+    copilotly: {
+        name: 'Copilotly',
+        category: 'ai',
+        keywords: ['copilotly', 'copilot-ly'],
+        selectors: ['[class*="copilotly"]', '[id*="copilotly"]'],
+        domains: ['copilotly.com']
+    },
+    browsergpt: {
+        name: 'BrowserGPT',
+        category: 'ai',
+        keywords: ['browsergpt', 'browser-gpt'],
+        selectors: ['[class*="browsergpt"]', '[id*="browsergpt"]'],
+        domains: ['browsergpt.com']
+    },
+    kimi: {
+        name: 'Kimi Explorer',
+        category: 'ai',
+        keywords: ['kimi', 'kimi-ai', 'kimi-explorer'],
+        selectors: ['[class*="kimi"]', '[id*="kimi"]'],
+        domains: ['kimi.ai']
+    },
+    openai_translator: {
+        name: 'OpenAI Translator',
+        category: 'ai',
+        keywords: ['openai-translator', 'openai-translate'],
+        selectors: ['[class*="openai-translator"]', '[id*="openai-translator"]'],
+        domains: []
+    },
+    wayin: {
+        name: 'Wayin AI',
+        category: 'ai',
+        keywords: ['wayin', 'wayin-ai'],
+        selectors: ['[class*="wayin"]', '[id*="wayin"]'],
+        domains: ['wayin.ai']
+    },
+    gpt_sidebar: {
+        name: 'GPT Sidebar',
+        category: 'ai',
+        keywords: ['gpt-sidebar', 'gptsidebar'],
+        selectors: ['[class*="gpt-sidebar"]', '[id*="gpt-sidebar"]'],
+        domains: []
+    },
+    talkberry: {
+        name: 'TalkBerry',
+        category: 'ai',
+        keywords: ['talkberry', 'talk-berry'],
+        selectors: ['[class*="talkberry"]', '[id*="talkberry"]'],
+        domains: ['talkberry.ai']
+    },
+    youtube_summary: {
+        name: 'YouTube Summary with ChatGPT',
+        category: 'ai',
+        keywords: ['youtube-summary', 'glasp'],
+        selectors: ['[class*="glasp"]', '[id*="glasp"]', '[class*="youtube-summary"]'],
+        domains: ['glasp.co']
+    },
+    chatgpt_notion: {
+        name: 'ChatGPT to Notion',
+        category: 'ai',
+        keywords: ['chatgpt-notion', 'notion-ai'],
+        selectors: ['[class*="chatgpt-notion"]', '[id*="chatgpt-notion"]'],
+        domains: []
+    },
+    gpt_sheets: {
+        name: 'GPT for Google Sheets',
+        category: 'ai',
+        keywords: ['gpt-sheets', 'chatgpt-sheets'],
+        selectors: ['[class*="gpt-sheets"]', '[id*="gpt-sheets"]'],
+        domains: []
+    },
+    aiprm: {
+        name: 'AIPRM for ChatGPT',
+        category: 'ai',
+        keywords: ['aiprm', 'ai-prm'],
+        selectors: ['[class*="aiprm"]', '[id*="aiprm"]'],
+        domains: ['aiprm.com']
+    },
+    webchatgpt: {
+        name: 'WebChatGPT',
+        category: 'ai',
+        keywords: ['webchatgpt', 'web-chatgpt'],
+        selectors: ['[class*="webchatgpt"]', '[id*="webchatgpt"]'],
+        domains: []
+    },
+    prompt_genius: {
+        name: 'ChatGPT Prompt Genius',
+        category: 'ai',
+        keywords: ['prompt-genius', 'promptgenius'],
+        selectors: ['[class*="prompt-genius"]', '[id*="prompt-genius"]'],
+        domains: []
+    },
+    summarize: {
+        name: 'Summarize Extension',
+        category: 'ai',
+        keywords: ['summarize', 'summarizer'],
+        selectors: ['[class*="summarize"]', '[id*="summarize"]'],
+        domains: []
+    },
+    promptheus: {
+        name: 'Promptheus',
+        category: 'ai',
+        keywords: ['promptheus', 'prompt-voice'],
+        selectors: ['[class*="promptheus"]', '[id*="promptheus"]'],
+        domains: []
+    },
+    sharegpt: {
+        name: 'ShareGPT',
+        category: 'ai',
+        keywords: ['sharegpt', 'share-gpt'],
+        selectors: ['[class*="sharegpt"]', '[id*="sharegpt"]'],
+        domains: ['sharegpt.com']
+    },
+    
+    // Desktop AI Applications & Floating Windows
+    sidekickbar: {
+        name: 'SidekickBar',
+        category: 'ai',
+        keywords: ['sidekickbar', 'sidekick-bar'],
+        selectors: ['[class*="sidekickbar"]', '[id*="sidekickbar"]'],
+        domains: ['sidekickbar.com']
+    },
+    windsurf: {
+        name: 'Windsurf (formerly Codeium)',
+        category: 'developer',
+        keywords: ['windsurf', 'codeium', 'cascade'],
+        selectors: ['[class*="windsurf"]', '[id*="windsurf"]', '[class*="codeium"]'],
+        domains: ['windsurf.com', 'codeium.com']
+    },
+    overlay: {
+        name: 'Overlay AI',
+        category: 'ai',
+        keywords: ['overlay', 'overlay-ai'],
+        selectors: ['[class*="overlay"]', '[id*="overlay"]'],
+        domains: ['overlay.one']
+    },
+    stagewise: {
+        name: 'stagewise',
+        category: 'developer',
+        keywords: ['stagewise', 'stage-wise'],
+        selectors: ['[class*="stagewise"]', '[id*="stagewise"]'],
+        domains: ['stagewise.io']
+    },
+    
+    // Additional AI Tools and Productivity Extensions
+    ai_blaze: {
+        name: 'AI Blaze',
+        category: 'ai',
+        keywords: ['ai-blaze', 'aiblaze', 'text-blaze'],
+        selectors: ['[class*="ai-blaze"]', '[id*="ai-blaze"]'],
+        domains: ['blaze.today']
+    },
+    
+    // Generic AI-related patterns
+    chatgpt_generic: {
+        name: 'ChatGPT Extensions',
+        category: 'ai',
+        keywords: ['chatgpt', 'chat-gpt', 'gpt-4', 'gpt4', 'openai'],
+        selectors: ['[class*="chatgpt"]', '[id*="chatgpt"]', '[class*="gpt"]', '[data-chatgpt]'],
+        domains: ['openai.com', 'chat.openai.com']
+    },
+    claude_generic: {
+        name: 'Claude Extensions',
+        category: 'ai',
+        keywords: ['claude', 'claude-ai', 'anthropic'],
+        selectors: ['[class*="claude"]', '[id*="claude"]', '[data-claude]'],
+        domains: ['claude.ai', 'anthropic.com']
+    },
+    gemini_generic: {
+        name: 'Gemini Extensions',
+        category: 'ai',
+        keywords: ['gemini', 'bard', 'google-ai'],
+        selectors: ['[class*="gemini"]', '[id*="gemini"]', '[class*="bard"]'],
+        domains: ['bard.google.com', 'gemini.google.com']
+    },
+    llama_generic: {
+        name: 'Llama Extensions',
+        category: 'ai',
+        keywords: ['llama', 'meta-ai'],
+        selectors: ['[class*="llama"]', '[id*="llama"]'],
+        domains: ['meta.ai']
+    },
+    deepseek_generic: {
+        name: 'DeepSeek Extensions',
+        category: 'ai',
+        keywords: ['deepseek', 'deep-seek'],
+        selectors: ['[class*="deepseek"]', '[id*="deepseek"]'],
+        domains: ['deepseek.com']
+    },
+    
+    // Floating window and overlay patterns
+    floating_ai: {
+        name: 'Floating AI Widgets',
+        category: 'ai',
+        keywords: ['floating', 'overlay', 'widget', 'popup', 'sidebar', 'panel'],
+        selectors: ['[class*="floating"]', '[class*="overlay"]', '[class*="widget"]', '[class*="popup"]', '[class*="sidebar"]', '[class*="panel"]'],
+        domains: []
+    }
+};
+
 class ExtensionDetector {
     constructor() {
-        this.isDetecting = false;
-        this.detectedExtensions = new Map();
+        this.detectedExtensions = new Set();
         this.detectionMethods = {
-            dom: true,
-            network: true,
-            globals: true,
-            css: true,
-            shadowDOM: true
+            dom: 0,
+            manifest: 0,
+            global: 0,
+            element: 0,
+            dom_observer: 0,
+            attribute_scanner: 0
         };
-        
-        this.stats = {
-            total: 0,
-            ai: 0,
-            productivity: 0,
-            security: 0,
-            developer: 0,
-            other: 0,
-            domDetections: 0,
-            networkDetections: 0,
-            globalDetections: 0,
-            cssDetections: 0,
-            shadowDOMDetections: 0
-        };
-        
-        this.observer = null;
-        this.networkRequests = new Set();
-        this.currentFilter = 'all';
+        this.observers = [];
+        this.lastScanTime = 0;
+        this.scanInterval = 2000; // Scan every 2 seconds
         
         this.init();
     }
 
     init() {
-        this.loadExtensionDatabase();
-        this.bindEvents();
-        this.setupMutationObserver();
-        this.setupNetworkMonitoring();
-        this.setupPanelControls();
-        this.loadStoredData();
-        
-        console.log('🔍 Extension Detection System initialized');
-        console.log('📊 Extension Database loaded with', Object.keys(this.extensionDatabase).length, 'signatures');
+        this.startContinuousDetection();
+        this.setupDOMObserver();
+        this.setupAttributeObserver();
+        this.startPeriodicScanning();
     }
 
-    loadExtensionDatabase() {
-        this.extensionDatabase = {
-            // AI Assistants
-            'monica': {
-                name: 'Monica',
-                category: 'ai',
-                signatures: {
-                    dom: ['monica-content-root', 'monica-widget', 'monica-sidebar', 'monica-floating', 'monica-chat', 'monica-modal', 'monica-app'],
-                    css: ['monica-', 'monica_'],
-                    globals: ['monica', 'MonicaApp', 'MonicaChat'],
-                    network: ['monica.com', 'monicahq.com'],
-                    attributes: ['data-monica', 'monica-id']
+    // Enhanced DOM Element Detection
+    detectDOMElements() {
+        let found = 0;
+        Object.entries(AI_EXTENSIONS_DATABASE).forEach(([key, extension]) => {
+            // Check CSS selectors
+            extension.selectors.forEach(selector => {
+                try {
+                    const elements = document.querySelectorAll(selector);
+                    if (elements.length > 0) {
+                        this.addDetectedExtension({
+                            id: key,
+                            name: extension.name,
+                            category: extension.category,
+                            method: 'DOM Element',
+                            selector: selector,
+                            elementCount: elements.length,
+                            elements: Array.from(elements).slice(0, 3) // Store first 3 elements
+                        });
+                        found++;
+                        this.detectionMethods.dom++;
+                    }
+                } catch (e) {
+                    console.warn('Invalid selector:', selector);
                 }
-            },
-            'chatgpt': {
-                name: 'ChatGPT Sidebar',
-                category: 'ai',
-                signatures: {
-                    dom: ['chatgpt-sidebar', 'openai-sidebar', 'gpt-sidebar', 'chatgpt-app', 'openai-app'],
-                    css: ['chatgpt-', 'openai-'],
-                    globals: ['ChatGPT', 'OpenAI', 'GPTSidebar'],
-                    network: ['chatgpt.com', 'openai.com', 'chat.openai.com'],
-                    attributes: ['data-chatgpt', 'data-openai']
-                }
-            },
-            'aitopia': {
-                name: 'AiTopia',
-                category: 'ai',
-                signatures: {
-                    dom: ['aitopia', 'ai-topia', 'aitopia-app', 'aitopia-widget'],
-                    css: ['aitopia', 'ai-topia'],
-                    globals: ['AiTopia', 'AiTopiaApp'],
-                    network: ['aitopia.app', 'aitopia.com'],
-                    attributes: ['data-v-app', 'data-aitopia']
-                }
-            },
-            'sider': {
-                name: 'Sider',
-                category: 'ai',
-                signatures: {
-                    dom: ['sider-app', 'sider-sidebar', 'sider-widget', 'sider-chat'],
-                    css: ['sider-', 'sider_'],
-                    globals: ['Sider', 'SiderApp'],
-                    network: ['sider.ai', 'chatgpt-sidebar.com'],
-                    attributes: ['data-sider']
-                }
-            },
-            'merlin': {
-                name: 'Merlin AI',
-                category: 'ai',
-                signatures: {
-                    dom: ['merlin-app', 'merlin-sidebar', 'merlin-widget'],
-                    css: ['merlin-', 'getmerlin-'],
-                    globals: ['Merlin', 'MerlinApp'],
-                    network: ['getmerlin.in', 'merlin.foyer.work'],
-                    attributes: ['data-merlin']
-                }
-            },
-            'claude': {
-                name: 'Claude',
-                category: 'ai',
-                signatures: {
-                    dom: ['claude-app', 'claude-sidebar', 'anthropic-app'],
-                    css: ['claude-', 'anthropic-'],
-                    globals: ['Claude', 'Anthropic'],
-                    network: ['claude.ai', 'anthropic.com'],
-                    attributes: ['data-claude', 'data-anthropic']
-                }
-            },
-            'copilot': {
-                name: 'GitHub Copilot',
-                category: 'ai',
-                signatures: {
-                    dom: ['copilot-app', 'github-copilot', 'copilot-sidebar'],
-                    css: ['copilot-', 'github-copilot-'],
-                    globals: ['Copilot', 'GitHubCopilot'],
-                    network: ['copilot-proxy.githubusercontent.com', 'api.github.com'],
-                    attributes: ['data-copilot']
-                }
-            },
-            
-            // Productivity
-            'grammarly': {
-                name: 'Grammarly',
-                category: 'productivity',
-                signatures: {
-                    dom: ['grammarly-app', 'grammarly-sidebar', 'grammarly-editor', 'grammarly-popups'],
-                    css: ['grammarly-', 'gr_'],
-                    globals: ['Grammarly', 'GrammarlyApp'],
-                    network: ['grammarly.com', 'gnar.grammarly.com'],
-                    attributes: ['data-grammarly', 'grammarly-extension']
-                }
-            },
-            'notion': {
-                name: 'Notion Web Clipper',
-                category: 'productivity',
-                signatures: {
-                    dom: ['notion-app', 'notion-clipper', 'notion-sidebar'],
-                    css: ['notion-', 'notion_'],
-                    globals: ['Notion', 'NotionApp'],
-                    network: ['notion.so', 'www.notion.so'],
-                    attributes: ['data-notion']
-                }
-            },
-            'evernote': {
-                name: 'Evernote Web Clipper',
-                category: 'productivity',
-                signatures: {
-                    dom: ['evernote-app', 'evernote-clipper', 'evernote-sidebar'],
-                    css: ['evernote-', 'en-'],
-                    globals: ['Evernote', 'EvernoteApp'],
-                    network: ['evernote.com', 'www.evernote.com'],
-                    attributes: ['data-evernote']
-                }
-            },
-            
-            // Security
-            'lastpass': {
-                name: 'LastPass',
-                category: 'security',
-                signatures: {
-                    dom: ['lastpass-app', 'lp-app', 'lastpass-sidebar', 'lastpass-vault'],
-                    css: ['lastpass-', 'lp-'],
-                    globals: ['LastPass', 'LP'],
-                    network: ['lastpass.com', 'vault.lastpass.com'],
-                    attributes: ['data-lastpass', 'data-lp']
-                }
-            },
-            'bitwarden': {
-                name: 'Bitwarden',
-                category: 'security',
-                signatures: {
-                    dom: ['bitwarden-app', 'bw-app', 'bitwarden-sidebar'],
-                    css: ['bitwarden-', 'bw-'],
-                    globals: ['Bitwarden', 'BitwardenApp'],
-                    network: ['bitwarden.com', 'vault.bitwarden.com'],
-                    attributes: ['data-bitwarden']
-                }
-            },
-            'dashlane': {
-                name: 'Dashlane',
-                category: 'security',
-                signatures: {
-                    dom: ['dashlane-app', 'dashlane-sidebar', 'dashlane-vault'],
-                    css: ['dashlane-', 'dl-'],
-                    globals: ['Dashlane', 'DashlaneApp'],
-                    network: ['dashlane.com', 'www.dashlane.com'],
-                    attributes: ['data-dashlane']
-                }
-            },
-            
-            // Developer Tools
-            'react-devtools': {
-                name: 'React Developer Tools',
-                category: 'developer',
-                signatures: {
-                    dom: ['react-devtools', 'react-dev-tools', '__REACT_DEVTOOLS_GLOBAL_HOOK__'],
-                    css: ['react-devtools-', 'react-dev-tools-'],
-                    globals: ['__REACT_DEVTOOLS_GLOBAL_HOOK__', 'ReactDevTools'],
-                    network: [],
-                    attributes: ['data-react-devtools']
-                }
-            },
-            'vue-devtools': {
-                name: 'Vue Developer Tools',
-                category: 'developer',
-                signatures: {
-                    dom: ['vue-devtools', 'vue-dev-tools', '__VUE_DEVTOOLS_GLOBAL_HOOK__'],
-                    css: ['vue-devtools-', 'vue-dev-tools-'],
-                    globals: ['__VUE_DEVTOOLS_GLOBAL_HOOK__', 'VueDevTools'],
-                    network: [],
-                    attributes: ['data-vue-devtools']
-                }
-            },
-            'redux-devtools': {
-                name: 'Redux DevTools',
-                category: 'developer',
-                signatures: {
-                    dom: ['redux-devtools', '__REDUX_DEVTOOLS_EXTENSION__'],
-                    css: ['redux-devtools-'],
-                    globals: ['__REDUX_DEVTOOLS_EXTENSION__', 'ReduxDevTools'],
-                    network: [],
-                    attributes: ['data-redux-devtools']
-                }
-            },
-            
-            // Shopping
-            'honey': {
-                name: 'Honey',
-                category: 'other',
-                signatures: {
-                    dom: ['honey-app', 'honey-sidebar', 'honey-widget'],
-                    css: ['honey-', 'honey_'],
-                    globals: ['Honey', 'HoneyApp'],
-                    network: ['honey.com', 'www.honey.com'],
-                    attributes: ['data-honey']
-                }
-            },
-            'capital-one': {
-                name: 'Capital One Shopping',
-                category: 'other',
-                signatures: {
-                    dom: ['capital-one-app', 'capitalone-app', 'c1-shopping'],
-                    css: ['capital-one-', 'capitalone-', 'c1-'],
-                    globals: ['CapitalOne', 'C1Shopping'],
-                    network: ['capitalone.com', 'shopping.capitalone.com'],
-                    attributes: ['data-capital-one']
-                }
-            }
-        };
-    }
+            });
 
-    bindEvents() {
-        // Main controls
-        document.getElementById('startDetection').addEventListener('click', () => this.startDetection());
-        document.getElementById('stopDetection').addEventListener('click', () => this.stopDetection());
-        document.getElementById('clearResults').addEventListener('click', () => this.clearResults());
-        document.getElementById('exportData').addEventListener('click', () => this.exportData());
-        
-        // Detection method toggles
-        document.getElementById('detectDOM').addEventListener('change', (e) => {
-            this.detectionMethods.dom = e.target.checked;
-        });
-        document.getElementById('detectNetwork').addEventListener('change', (e) => {
-            this.detectionMethods.network = e.target.checked;
-        });
-        document.getElementById('detectGlobals').addEventListener('change', (e) => {
-            this.detectionMethods.globals = e.target.checked;
-        });
-        document.getElementById('detectCSS').addEventListener('change', (e) => {
-            this.detectionMethods.css = e.target.checked;
-        });
-        document.getElementById('detectShadowDOM').addEventListener('change', (e) => {
-            this.detectionMethods.shadowDOM = e.target.checked;
-        });
-        
-        // Filter tabs
-        document.querySelectorAll('.filter-tab').forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-                e.target.classList.add('active');
-                this.currentFilter = e.target.dataset.category;
-                this.filterResults();
+            // Check keywords in element content and attributes
+            extension.keywords.forEach(keyword => {
+                this.scanForKeywordInDOM(keyword, extension, key);
             });
         });
+        return found;
     }
 
-    setupMutationObserver() {
-        this.observer = new MutationObserver((mutations) => {
-            if (!this.isDetecting || !this.detectionMethods.dom) return;
+    // Enhanced keyword scanning in DOM
+    scanForKeywordInDOM(keyword, extension, extensionKey) {
+        const elements = document.querySelectorAll('*');
+        
+        elements.forEach(element => {
+            // Check element attributes
+            const attributes = ['class', 'id', 'data-extension', 'data-app', 'title', 'aria-label'];
+            attributes.forEach(attr => {
+                const value = element.getAttribute(attr);
+                if (value && value.toLowerCase().includes(keyword.toLowerCase())) {
+                    this.addDetectedExtension({
+                        id: extensionKey,
+                        name: extension.name,
+                        category: extension.category,
+                        method: 'Attribute Scan',
+                        attribute: attr,
+                        value: value,
+                        keyword: keyword,
+                        element: element
+                    });
+                    this.detectionMethods.attribute_scanner++;
+                }
+            });
 
-            mutations.forEach((mutation) => {
-                if (mutation.addedNodes.length) {
-                    mutation.addedNodes.forEach((node) => {
+            // Check element text content (but avoid performance issues)
+            if (element.children.length === 0 && element.textContent) {
+                const text = element.textContent.toLowerCase();
+                if (text.includes(keyword.toLowerCase())) {
+                    this.addDetectedExtension({
+                        id: extensionKey,
+                        name: extension.name,
+                        category: extension.category,
+                        method: 'Text Content',
+                        keyword: keyword,
+                        element: element,
+                        textContent: element.textContent.substring(0, 100)
+                    });
+                    this.detectionMethods.element++;
+                }
+            }
+        });
+    }
+
+    // Enhanced Manifest Detection
+    detectManifestExtensions() {
+        let found = 0;
+        if (typeof chrome !== 'undefined' && chrome.runtime) {
+            try {
+                const manifest = chrome.runtime.getManifest();
+                if (manifest) {
+                    Object.entries(AI_EXTENSIONS_DATABASE).forEach(([key, extension]) => {
+                        extension.keywords.forEach(keyword => {
+                            const manifestStr = JSON.stringify(manifest).toLowerCase();
+                            if (manifestStr.includes(keyword.toLowerCase())) {
+                                this.addDetectedExtension({
+                                    id: key,
+                                    name: extension.name,
+                                    category: extension.category,
+                                    method: 'Manifest',
+                                    keyword: keyword,
+                                    manifest: manifest
+                                });
+                                found++;
+                                this.detectionMethods.manifest++;
+                            }
+                        });
+                    });
+                }
+            } catch (e) {
+                console.log('Manifest access restricted');
+            }
+        }
+        return found;
+    }
+
+    // Enhanced Global Object Detection
+    detectGlobalObjects() {
+        let found = 0;
+        Object.entries(AI_EXTENSIONS_DATABASE).forEach(([key, extension]) => {
+            extension.keywords.forEach(keyword => {
+                // Check window object for extension-related properties
+                const variations = [
+                    keyword,
+                    keyword.replace(/-/g, ''),
+                    keyword.replace(/-/g, '_'),
+                    keyword.toUpperCase(),
+                    keyword.toLowerCase()
+                ];
+
+                variations.forEach(variation => {
+                    if (window[variation] || 
+                        (window.chrome && window.chrome[variation]) ||
+                        document[variation]) {
+                        this.addDetectedExtension({
+                            id: key,
+                            name: extension.name,
+                            category: extension.category,
+                            method: 'Global Object',
+                            property: variation,
+                            value: window[variation] || window.chrome[variation] || document[variation]
+                        });
+                        found++;
+                        this.detectionMethods.global++;
+                    }
+                });
+            });
+        });
+        return found;
+    }
+
+    // Enhanced URL and Domain Detection
+    detectByURL() {
+        let found = 0;
+        const currentDomain = window.location.hostname.toLowerCase();
+        const currentURL = window.location.href.toLowerCase();
+
+        Object.entries(AI_EXTENSIONS_DATABASE).forEach(([key, extension]) => {
+            // Check if current domain matches extension domains
+            extension.domains.forEach(domain => {
+                if (currentDomain.includes(domain.toLowerCase())) {
+                    this.addDetectedExtension({
+                        id: key,
+                        name: extension.name,
+                        category: extension.category,
+                        method: 'Domain Match',
+                        domain: domain,
+                        currentDomain: currentDomain
+                    });
+                    found++;
+                }
+            });
+
+            // Check keywords in URL
+            extension.keywords.forEach(keyword => {
+                if (currentURL.includes(keyword.toLowerCase())) {
+                    this.addDetectedExtension({
+                        id: key,
+                        name: extension.name,
+                        category: extension.category,
+                        method: 'URL Keyword',
+                        keyword: keyword,
+                        url: currentURL
+                    });
+                    found++;
+                }
+            });
+        });
+        return found;
+    }
+
+    // Setup DOM Observer for dynamic content
+    setupDOMObserver() {
+        const observer = new MutationObserver((mutations) => {
+            let shouldRescan = false;
+            
+            mutations.forEach(mutation => {
+                if (mutation.type === 'childList') {
+                    mutation.addedNodes.forEach(node => {
                         if (node.nodeType === Node.ELEMENT_NODE) {
-                            this.analyzeElement(node);
-                            this.analyzeChildElements(node);
+                            shouldRescan = true;
                         }
                     });
                 }
-
-                if (mutation.type === 'attributes' && 
-                    (mutation.attributeName === 'class' || 
-                     mutation.attributeName === 'id' || 
-                     mutation.attributeName.startsWith('data-'))) {
-                    this.analyzeElement(mutation.target);
+                
+                if (mutation.type === 'attributes') {
+                    shouldRescan = true;
                 }
             });
+
+            if (shouldRescan) {
+                // Debounce the rescan
+                clearTimeout(this.rescanTimeout);
+                this.rescanTimeout = setTimeout(() => {
+                    this.detectDOMElements();
+                    this.detectionMethods.dom_observer++;
+                    this.updateResults();
+                }, 500);
+            }
         });
 
-        this.observer.observe(document.body, {
+        observer.observe(document.body, {
             childList: true,
             subtree: true,
             attributes: true,
-            attributeFilter: ['class', 'id', 'data-v-app', 'data-testid', 'data-cy']
+            attributeFilter: ['class', 'id', 'data-extension', 'data-app']
         });
+
+        this.observers.push(observer);
     }
 
-    setupNetworkMonitoring() {
-        // Override fetch
-        const originalFetch = window.fetch;
-        window.fetch = async (...args) => {
-            if (this.isDetecting && this.detectionMethods.network) {
-                const url = args[0];
-                this.analyzeNetworkRequest(url);
-            }
-            return originalFetch.apply(this, args);
-        };
+    // Setup specialized attribute observer
+    setupAttributeObserver() {
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach(mutation => {
+                if (mutation.type === 'attributes' && mutation.target) {
+                    const element = mutation.target;
+                    const attributeName = mutation.attributeName;
+                    const attributeValue = element.getAttribute(attributeName);
 
-        // Override XMLHttpRequest
-        const originalXHR = window.XMLHttpRequest;
-        window.XMLHttpRequest = function(...args) {
-            const xhr = new originalXHR(...args);
-            const originalOpen = xhr.open;
-            
-            xhr.open = function(method, url, ...rest) {
-                if (this.isDetecting && this.detectionMethods.network) {
-                    this.analyzeNetworkRequest(url);
+                    if (attributeValue) {
+                        // Check if any AI extension keywords match this attribute
+                        Object.entries(AI_EXTENSIONS_DATABASE).forEach(([key, extension]) => {
+                            extension.keywords.forEach(keyword => {
+                                if (attributeValue.toLowerCase().includes(keyword.toLowerCase())) {
+                                    this.addDetectedExtension({
+                                        id: key,
+                                        name: extension.name,
+                                        category: extension.category,
+                                        method: 'Dynamic Attribute',
+                                        attribute: attributeName,
+                                        value: attributeValue,
+                                        keyword: keyword,
+                                        element: element
+                                    });
+                                    this.detectionMethods.attribute_scanner++;
+                                }
+                            });
+                        });
+                    }
                 }
-                return originalOpen.apply(this, [method, url, ...rest]);
-            }.bind(this);
-            
-            return xhr;
-        }.bind(this);
-    }
-
-    setupPanelControls() {
-        document.querySelectorAll('.panel-toggle').forEach(toggle => {
-            toggle.addEventListener('click', (e) => {
-                const panelId = e.target.dataset.panel;
-                const panel = document.getElementById(panelId);
-                panel.classList.toggle('minimized');
             });
         });
+
+        observer.observe(document.documentElement, {
+            attributes: true,
+            subtree: true,
+            attributeFilter: ['class', 'id', 'data-extension', 'data-app', 'data-testid', 'aria-label']
+        });
+
+        this.observers.push(observer);
     }
 
-    analyzeElement(element) {
-        if (!element || element === document.body || element === document.documentElement) return;
-
-        const className = element.className ? element.className.toLowerCase() : '';
-        const id = element.id ? element.id.toLowerCase() : '';
-        const tagName = element.tagName.toLowerCase();
-        const attributes = Array.from(element.attributes || []).map(attr => `${attr.name}=${attr.value}`).join(' ').toLowerCase();
+    // Start continuous detection
+    startContinuousDetection() {
+        // Initial detection
+        this.runAllDetectionMethods();
         
-        // Check each extension signature
-        for (const [key, extension] of Object.entries(this.extensionDatabase)) {
-            if (this.detectedExtensions.has(key)) continue;
-            
-            const signatures = extension.signatures;
-            let matches = [];
-            
-            // Check DOM signatures
-            if (signatures.dom) {
-                signatures.dom.forEach(sig => {
-                    if (className.includes(sig) || id.includes(sig) || attributes.includes(sig)) {
-                        matches.push(`DOM: ${sig}`);
-                    }
-                });
-            }
-            
-            // Check CSS signatures
-            if (signatures.css) {
-                signatures.css.forEach(sig => {
-                    if (className.includes(sig) || id.includes(sig)) {
-                        matches.push(`CSS: ${sig}`);
-                    }
-                });
-            }
-            
-            // Check attribute signatures
-            if (signatures.attributes) {
-                signatures.attributes.forEach(sig => {
-                    if (attributes.includes(sig)) {
-                        matches.push(`Attribute: ${sig}`);
-                    }
-                });
-            }
-            
-            if (matches.length > 0) {
-                this.detectExtension(key, extension, 'DOM Injection', matches, element);
-            }
+        // Re-run detection after page fully loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(() => this.runAllDetectionMethods(), 1000);
+            });
         }
-        
-        // Check for shadow DOM
-        if (this.detectionMethods.shadowDOM && element.shadowRoot) {
-            this.analyzeShadowDOM(element.shadowRoot);
+
+        // Re-run detection after window loads
+        if (document.readyState !== 'complete') {
+            window.addEventListener('load', () => {
+                setTimeout(() => this.runAllDetectionMethods(), 2000);
+            });
         }
     }
 
-    analyzeChildElements(parentElement) {
-        const elements = parentElement.querySelectorAll('*');
-        elements.forEach(element => this.analyzeElement(element));
+    // Start periodic scanning
+    startPeriodicScanning() {
+        setInterval(() => {
+            if (Date.now() - this.lastScanTime > this.scanInterval) {
+                this.runAllDetectionMethods();
+                this.lastScanTime = Date.now();
+            }
+        }, this.scanInterval);
     }
 
-    analyzeShadowDOM(shadowRoot) {
-        const elements = shadowRoot.querySelectorAll('*');
-        elements.forEach(element => this.analyzeElement(element));
+    // Run all detection methods
+    runAllDetectionMethods() {
+        this.detectDOMElements();
+        this.detectManifestExtensions();
+        this.detectGlobalObjects();
+        this.detectByURL();
+        this.detectSpecialPatterns();
+        this.updateResults();
     }
 
-    analyzeNetworkRequest(url) {
-        if (typeof url !== 'string') return;
-        
-        for (const [key, extension] of Object.entries(this.extensionDatabase)) {
-            if (this.detectedExtensions.has(key)) continue;
-            
-            const signatures = extension.signatures;
-            if (signatures.network) {
-                signatures.network.forEach(domain => {
-                    if (url.includes(domain)) {
-                        this.detectExtension(key, extension, 'Network Request', [`URL: ${url}`]);
+    // Detect special patterns and behaviors
+    detectSpecialPatterns() {
+        // Look for iframe patterns commonly used by AI extensions
+        const iframes = document.querySelectorAll('iframe');
+        iframes.forEach(iframe => {
+            const src = iframe.src?.toLowerCase() || '';
+            const id = iframe.id?.toLowerCase() || '';
+            const className = iframe.className?.toLowerCase() || '';
+
+            Object.entries(AI_EXTENSIONS_DATABASE).forEach(([key, extension]) => {
+                extension.keywords.forEach(keyword => {
+                    if (src.includes(keyword) || id.includes(keyword) || className.includes(keyword)) {
+                        this.addDetectedExtension({
+                            id: key,
+                            name: extension.name,
+                            category: extension.category,
+                            method: 'Iframe Pattern',
+                            keyword: keyword,
+                            src: src,
+                            element: iframe
+                        });
                     }
                 });
+
+                extension.domains.forEach(domain => {
+                    if (src.includes(domain)) {
+                        this.addDetectedExtension({
+                            id: key,
+                            name: extension.name,
+                            category: extension.category,
+                            method: 'Iframe Domain',
+                            domain: domain,
+                            src: src,
+                            element: iframe
+                        });
+                    }
+                });
+            });
+        });
+
+        // Look for shadow DOM elements
+        this.detectShadowDOM();
+        
+        // Look for CSS injections
+        this.detectCSSInjections();
+    }
+
+    // Detect Shadow DOM elements
+    detectShadowDOM() {
+        const elements = document.querySelectorAll('*');
+        elements.forEach(element => {
+            if (element.shadowRoot) {
+                Object.entries(AI_EXTENSIONS_DATABASE).forEach(([key, extension]) => {
+                    extension.selectors.forEach(selector => {
+                        try {
+                            const shadowElements = element.shadowRoot.querySelectorAll(selector);
+                            if (shadowElements.length > 0) {
+                                this.addDetectedExtension({
+                                    id: key,
+                                    name: extension.name,
+                                    category: extension.category,
+                                    method: 'Shadow DOM',
+                                    selector: selector,
+                                    shadowHost: element,
+                                    elementCount: shadowElements.length
+                                });
+                            }
+                        } catch (e) {
+                            // Selector might not work in shadow DOM
+                        }
+                    });
+                });
+            }
+        });
+    }
+
+    // Detect CSS injections
+    detectCSSInjections() {
+        const stylesheets = document.styleSheets;
+        for (let i = 0; i < stylesheets.length; i++) {
+            try {
+                const rules = stylesheets[i].cssRules || stylesheets[i].rules;
+                if (rules) {
+                    for (let j = 0; j < rules.length; j++) {
+                        const rule = rules[j];
+                        if (rule.selectorText) {
+                            Object.entries(AI_EXTENSIONS_DATABASE).forEach(([key, extension]) => {
+                                extension.keywords.forEach(keyword => {
+                                    if (rule.selectorText.toLowerCase().includes(keyword.toLowerCase())) {
+                                        this.addDetectedExtension({
+                                            id: key,
+                                            name: extension.name,
+                                            category: extension.category,
+                                            method: 'CSS Injection',
+                                            keyword: keyword,
+                                            selector: rule.selectorText,
+                                            stylesheet: stylesheets[i]
+                                        });
+                                    }
+                                });
+                            });
+                        }
+                    }
+                }
+            } catch (e) {
+                // Cross-origin stylesheets can't be accessed
             }
         }
     }
 
-    analyzeGlobalVariables() {
-        if (!this.detectionMethods.globals) return;
+    // Add detected extension with deduplication
+    addDetectedExtension(detection) {
+        const existingKey = `${detection.id}-${detection.method}`;
         
-        for (const [key, extension] of Object.entries(this.extensionDatabase)) {
-            if (this.detectedExtensions.has(key)) continue;
+        if (!this.detectedExtensions.has(existingKey)) {
+            this.detectedExtensions.add(existingKey);
             
-            const signatures = extension.signatures;
-            if (signatures.globals) {
-                signatures.globals.forEach(globalVar => {
-                    if (window[globalVar] !== undefined) {
-                        this.detectExtension(key, extension, 'Global Variable', [`Variable: ${globalVar}`]);
-                    }
-                });
+            // Store in global results
+            if (!window.detectionResults) {
+                window.detectionResults = [];
             }
+            
+            window.detectionResults.push({
+                ...detection,
+                timestamp: new Date().toISOString(),
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            });
         }
     }
 
-    detectExtension(key, extension, method, details, element = null) {
-        if (this.detectedExtensions.has(key)) return;
-        
-        const detection = {
-            id: key,
-            name: extension.name,
-            category: extension.category,
-            method: method,
-            details: details,
-            element: element,
-            timestamp: new Date().toISOString(),
-            confidence: this.calculateConfidence(details)
+    // Update UI with results
+    updateResults() {
+        if (typeof updateExtensionResults === 'function') {
+            updateExtensionResults();
+        }
+    }
+
+    // Get detection statistics
+    getStats() {
+        return {
+            totalDetections: this.detectedExtensions.size,
+            detectionMethods: this.detectionMethods,
+            extensionsFound: window.detectionResults ? window.detectionResults.length : 0,
+            uniqueExtensions: window.detectionResults ? 
+                new Set(window.detectionResults.map(r => r.id)).size : 0
         };
-        
-        this.detectedExtensions.set(key, detection);
-        this.updateStats(detection);
-        this.addToResults(detection);
-        this.updatePanels();
-        this.saveToStorage();
-        
-        console.log(`🔍 Extension detected: ${extension.name} via ${method}`, detection);
     }
 
-    calculateConfidence(details) {
-        // Simple confidence calculation based on number of matches
-        const baseConfidence = 60;
-        const detailBonus = Math.min(details.length * 10, 40);
-        return Math.min(baseConfidence + detailBonus, 100);
+    // Cleanup observers
+    cleanup() {
+        this.observers.forEach(observer => observer.disconnect());
+        this.observers = [];
     }
+}
 
-    updateStats(detection) {
-        this.stats.total++;
-        this.stats[detection.category]++;
-        
-        switch (detection.method) {
-            case 'DOM Injection':
-                this.stats.domDetections++;
-                break;
-            case 'Network Request':
-                this.stats.networkDetections++;
-                break;
-            case 'Global Variable':
-                this.stats.globalDetections++;
-                break;
-            case 'CSS Injection':
-                this.stats.cssDetections++;
-                break;
-            case 'Shadow DOM':
-                this.stats.shadowDOMDetections++;
-                break;
-        }
-        
-        this.updateStatsDisplay();
+// Additional detection functions for UI integration
+function startDetection() {
+    if (!window.extensionDetector) {
+        window.extensionDetector = new ExtensionDetector();
     }
+    window.extensionDetector.runAllDetectionMethods();
+    updateExtensionResults();
+    updateStats();
+}
 
-    updateStatsDisplay() {
-        document.getElementById('totalDetected').textContent = this.stats.total;
-        document.getElementById('aiExtensions').textContent = this.stats.ai;
-        document.getElementById('domInjections').textContent = this.stats.domDetections;
-        document.getElementById('networkRequests').textContent = this.stats.networkDetections;
-        document.getElementById('extensionCount').textContent = `(${this.stats.total})`;
-        
-        // Update panel stats
-        document.getElementById('basicCount').textContent = this.stats.total;
-        document.getElementById('domCount').textContent = this.stats.domDetections;
-        document.getElementById('networkCount').textContent = this.stats.networkDetections;
-        document.getElementById('globalsCount').textContent = this.stats.globalDetections;
-        document.getElementById('cssCount').textContent = this.stats.cssDetections;
+function startAdvancedDetection() {
+    startDetection();
+    
+    // Additional advanced scans
+    if (window.extensionDetector) {
+        setTimeout(() => {
+            window.extensionDetector.detectSpecialPatterns();
+            updateExtensionResults();
+            updateStats();
+        }, 500);
     }
+}
 
-    addToResults(detection) {
-        const resultsContainer = document.getElementById('detectedExtensions');
-        const noResults = resultsContainer.querySelector('.no-results');
-        if (noResults) noResults.remove();
-
-        const extensionDiv = document.createElement('div');
-        extensionDiv.className = 'detected-extension';
-        extensionDiv.dataset.category = detection.category;
-        
-        extensionDiv.innerHTML = `
+// UI Update Functions
+function updateExtensionResults() {
+    const resultsContainer = document.getElementById('detectionResults');
+    const extensionCount = document.getElementById('extensionCount');
+    
+    if (!resultsContainer || !extensionCount) return;
+    
+    const extensions = Array.from(window.extensionDetector?.detectedExtensions || []);
+    
+    // Update extension count
+    extensionCount.textContent = `${extensions.length} extensions detected`;
+    
+    if (extensions.length === 0) {
+        resultsContainer.innerHTML = `
+            <div class="no-results">
+                <div class="no-results-icon">🔍</div>
+                <h3>No extensions detected yet</h3>
+                <p>Click "Quick Scan" or "Deep Scan" to start detecting AI extensions</p>
+            </div>
+        `;
+        return;
+    }
+    
+    resultsContainer.innerHTML = extensions.map(ext => `
+        <div class="detected-extension" data-category="${ext.category || 'other'}">
             <div class="extension-header">
-                <div class="extension-name">${detection.name}</div>
-                <div class="extension-category ${detection.category}">${detection.category}</div>
+                <div class="extension-name">${ext.name}</div>
+                <div class="extension-category ${ext.category || 'other'}">${ext.category || 'other'}</div>
             </div>
             <div class="extension-details">
                 <div class="extension-detail">
                     <div class="detail-label">Detection Method</div>
-                    <div class="detail-value">${detection.method}</div>
+                    <div class="detail-value">${ext.method || 'Unknown'}</div>
+                </div>
+                <div class="extension-detail">
+                    <div class="detail-label">Selectors Found</div>
+                    <div class="detail-value">${ext.selectors?.join(', ') || 'N/A'}</div>
+                </div>
+                <div class="extension-detail">
+                    <div class="detail-label">Elements</div>
+                    <div class="detail-value">${ext.elementCount || 0} found</div>
                 </div>
                 <div class="extension-detail">
                     <div class="detail-label">Confidence</div>
-                    <div class="detail-value">${detection.confidence}%</div>
-                </div>
-                <div class="extension-detail">
-                    <div class="detail-label">Timestamp</div>
-                    <div class="detail-value">${new Date(detection.timestamp).toLocaleTimeString()}</div>
-                </div>
-                <div class="extension-detail">
-                    <div class="detail-label">Details</div>
-                    <div class="detail-value">${detection.details.join(', ')}</div>
+                    <div class="detail-value">${ext.confidence || 'Medium'}</div>
                 </div>
             </div>
-        `;
-        
-        resultsContainer.appendChild(extensionDiv);
-    }
+        </div>
+    `).join('');
+    
+    // Update category filters
+    updateCategoryFilters();
+}
 
-    updatePanels() {
-        this.updateBasicPanel();
-        this.updateAdvancedPanel();
+function updateStats() {
+    if (!window.extensionDetector) return;
+    
+    const extensions = Array.from(window.extensionDetector.detectedExtensions || []);
+    const methods = window.extensionDetector.detectionMethods || {};
+    
+    // Update category counts
+    const counts = {
+        ai: 0,
+        productivity: 0,
+        developer: 0,
+        security: 0,
+        other: 0
+    };
+    
+    extensions.forEach(ext => {
+        const category = ext.category || 'other';
+        counts[category] = (counts[category] || 0) + 1;
+    });
+    
+    // Update category count elements
+    document.getElementById('aiCount').textContent = counts.ai;
+    document.getElementById('productivityCount').textContent = counts.productivity;
+    document.getElementById('developerCount').textContent = counts.developer;
+    document.getElementById('securityCount').textContent = counts.security;
+    
+    // Update detection method counts
+    document.getElementById('domCount').textContent = methods.dom || 0;
+    document.getElementById('manifestCount').textContent = methods.manifest || 0;
+    document.getElementById('globalCount').textContent = methods.global || 0;
+    document.getElementById('elementCount').textContent = methods.element || 0;
+    
+    // Update live panel counts
+    document.getElementById('totalCount').textContent = extensions.length;
+    document.getElementById('liveAiCount').textContent = counts.ai;
+    
+    // Update scan status
+    const scanStatus = document.getElementById('scanStatus');
+    if (scanStatus) {
+        scanStatus.textContent = extensions.length > 0 ? 'Active' : 'Ready';
+        scanStatus.className = `status-indicator ${extensions.length > 0 ? 'active' : 'ready'}`;
     }
+}
 
-    updateBasicPanel() {
-        const basicResults = document.getElementById('basicResults');
-        const lastDetection = Array.from(this.detectedExtensions.values()).pop();
-        
-        if (lastDetection) {
-            const panelItem = document.createElement('div');
-            panelItem.className = 'panel-extension';
-            panelItem.innerHTML = `
-                <div class="panel-extension-name">${lastDetection.name}</div>
-                <div class="panel-extension-method">${lastDetection.method}</div>
-                <div class="panel-extension-details">${lastDetection.confidence}% confidence</div>
-            `;
-            basicResults.appendChild(panelItem);
+function updateCategoryFilters() {
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs
+            filterTabs.forEach(t => t.classList.remove('active'));
             
-            // Keep only last 5 items
-            while (basicResults.children.length > 5) {
-                basicResults.removeChild(basicResults.firstChild);
-            }
-        }
-    }
-
-    updateAdvancedPanel() {
-        const advancedResults = document.getElementById('advancedResults');
-        const lastDetection = Array.from(this.detectedExtensions.values()).pop();
-        
-        if (lastDetection) {
-            const panelItem = document.createElement('div');
-            panelItem.className = 'panel-extension';
-            panelItem.innerHTML = `
-                <div class="panel-extension-name">${lastDetection.name}</div>
-                <div class="panel-extension-method">${lastDetection.method}</div>
-                <div class="panel-extension-details">${lastDetection.details.join(', ')}</div>
-            `;
-            advancedResults.appendChild(panelItem);
+            // Add active class to clicked tab
+            tab.classList.add('active');
             
-            // Keep only last 5 items
-            while (advancedResults.children.length > 5) {
-                advancedResults.removeChild(advancedResults.firstChild);
-            }
-        }
-    }
-
-    filterResults() {
-        const extensions = document.querySelectorAll('.detected-extension');
-        extensions.forEach(ext => {
-            if (this.currentFilter === 'all' || ext.dataset.category === this.currentFilter) {
-                ext.classList.remove('hidden');
-            } else {
-                ext.classList.add('hidden');
-            }
-        });
-    }
-
-    startDetection() {
-        this.isDetecting = true;
-        document.getElementById('basicStatus').textContent = 'ON';
-        document.getElementById('basicStatus').style.color = '#4CAF50';
-        
-        // Scan existing elements
-        this.scanExistingElements();
-        
-        // Analyze global variables
-        this.analyzeGlobalVariables();
-        
-        console.log('🚀 Extension detection started');
-    }
-
-    stopDetection() {
-        this.isDetecting = false;
-        document.getElementById('basicStatus').textContent = 'OFF';
-        document.getElementById('basicStatus').style.color = '#f44336';
-        
-        console.log('⏹️ Extension detection stopped');
-    }
-
-    scanExistingElements() {
-        const elements = document.querySelectorAll('*');
-        elements.forEach(element => this.analyzeElement(element));
-    }
-
-    clearResults() {
-        this.detectedExtensions.clear();
-        this.stats = {
-            total: 0,
-            ai: 0,
-            productivity: 0,
-            security: 0,
-            developer: 0,
-            other: 0,
-            domDetections: 0,
-            networkDetections: 0,
-            globalDetections: 0,
-            cssDetections: 0,
-            shadowDOMDetections: 0
-        };
-        
-        document.getElementById('detectedExtensions').innerHTML = '<p class="no-results">No extensions detected yet. Click "Start Detection" to begin monitoring.</p>';
-        document.getElementById('basicResults').innerHTML = '';
-        document.getElementById('advancedResults').innerHTML = '';
-        
-        this.updateStatsDisplay();
-        this.saveToStorage();
-        
-        console.log('🧹 Results cleared');
-    }
-
-    exportData() {
-        const data = {
-            timestamp: new Date().toISOString(),
-            stats: this.stats,
-            detections: Array.from(this.detectedExtensions.values()),
-            detectionMethods: this.detectionMethods
-        };
-        
-        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `extension-detection-${new Date().toISOString().split('T')[0]}.json`;
-        a.click();
-        URL.revokeObjectURL(url);
-        
-        console.log('📥 Data exported');
-    }
-
-    saveToStorage() {
-        const data = {
-            detections: Array.from(this.detectedExtensions.entries()),
-            stats: this.stats,
-            timestamp: new Date().toISOString()
-        };
-        localStorage.setItem('extensionDetectionData', JSON.stringify(data));
-    }
-
-    loadStoredData() {
-        const stored = localStorage.getItem('extensionDetectionData');
-        if (stored) {
-            const data = JSON.parse(stored);
-            this.detectedExtensions = new Map(data.detections || []);
-            this.stats = data.stats || this.stats;
+            // Filter extensions
+            const category = tab.dataset.category;
+            const extensions = document.querySelectorAll('.detected-extension');
             
-            // Restore UI
-            this.detectedExtensions.forEach(detection => {
-                this.addToResults(detection);
+            extensions.forEach(ext => {
+                if (category === 'all' || ext.dataset.category === category) {
+                    ext.classList.remove('hidden');
+                } else {
+                    ext.classList.add('hidden');
+                }
             });
-            this.updateStatsDisplay();
-            this.updatePanels();
-            
-            console.log('📊 Loaded stored detection data');
-        }
+        });
+    });
+}
+
+// Enhanced detection control functions
+function clearResults() {
+    if (window.extensionDetector) {
+        window.extensionDetector.detectedExtensions.clear();
+        window.extensionDetector.detectionMethods = {
+            dom: 0,
+            manifest: 0,
+            global: 0,
+            element: 0,
+            dom_observer: 0,
+            attribute_scanner: 0
+        };
     }
+    
+    updateExtensionResults();
+    updateStats();
+    
+    console.log('🧹 Results cleared');
+}
+
+function exportResults() {
+    if (!window.extensionDetector) {
+        alert('No detection data available to export');
+        return;
+    }
+    
+    const extensions = Array.from(window.extensionDetector.detectedExtensions);
+    const methods = window.extensionDetector.detectionMethods;
+    
+    const exportData = {
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+        url: window.location.href,
+        totalExtensions: extensions.length,
+        detectionMethods: methods,
+        extensions: extensions.map(ext => ({
+            name: ext.name,
+            category: ext.category,
+            method: ext.method,
+            confidence: ext.confidence,
+            selectors: ext.selectors,
+            elementCount: ext.elementCount
+        }))
+    };
+    
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `ai-extension-detection-${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    console.log('💾 Detection results exported');
+}
+
+// Panel toggle function
+function togglePanel(panelId) {
+    const panel = document.getElementById(panelId);
+    if (!panel) return;
+    
+    const content = panel.querySelector('.panel-content');
+    const toggle = panel.querySelector('.panel-toggle');
+    
+    if (content.style.display === 'none') {
+        content.style.display = 'block';
+        toggle.textContent = '−';
+    } else {
+        content.style.display = 'none';
+        toggle.textContent = '+';
+    }
+}
+
+// Simulation functions for testing
+function createSimulatedFloating() {
+    // Remove existing simulated elements
+    removeSimulatedElements();
+    
+    const floating = document.createElement('div');
+    floating.className = 'simulated-floating';
+    floating.id = 'simulated-floating-widget';
+    floating.innerHTML = '🤖';
+    floating.style.top = '50%';
+    floating.style.right = '50px';
+    floating.title = 'Simulated AI Floating Widget';
+    
+    // Add some AI-related attributes for detection
+    floating.setAttribute('data-ai-widget', 'true');
+    floating.setAttribute('data-extension', 'simulated-ai');
+    
+    document.body.appendChild(floating);
+    
+    // Trigger detection after a short delay
+    setTimeout(() => {
+        if (window.extensionDetector) {
+            window.extensionDetector.runAllDetectionMethods();
+            updateExtensionResults();
+            updateStats();
+        }
+    }, 500);
+    
+    console.log('🎯 Simulated floating widget created');
+}
+
+function createSimulatedSidebar() {
+    // Remove existing simulated elements
+    removeSimulatedElements();
+    
+    const sidebar = document.createElement('div');
+    sidebar.className = 'simulated-sidebar';
+    sidebar.id = 'simulated-ai-sidebar';
+    sidebar.innerHTML = `
+        <button class="close-btn" onclick="removeSimulatedElements()">×</button>
+        <h3>🤖 AI Assistant</h3>
+        <p>This is a simulated AI sidebar for testing detection capabilities.</p>
+        <div data-ai="monica" data-extension="ai-sidebar">AI Content</div>
+    `;
+    
+    // Add AI-related attributes
+    sidebar.setAttribute('data-ai-sidebar', 'true');
+    sidebar.setAttribute('data-extension', 'simulated-monica');
+    sidebar.setAttribute('data-sider', 'true');
+    
+    document.body.appendChild(sidebar);
+    
+    // Show sidebar with animation
+    setTimeout(() => {
+        sidebar.classList.add('show');
+    }, 100);
+    
+    // Trigger detection
+    setTimeout(() => {
+        if (window.extensionDetector) {
+            window.extensionDetector.runAllDetectionMethods();
+            updateExtensionResults();
+            updateStats();
+        }
+    }, 500);
+    
+    console.log('📐 Simulated AI sidebar created');
+}
+
+function removeSimulatedElements() {
+    const floating = document.getElementById('simulated-floating-widget');
+    const sidebar = document.getElementById('simulated-ai-sidebar');
+    
+    if (floating) floating.remove();
+    if (sidebar) sidebar.remove();
+    
+    // Re-run detection to update results
+    setTimeout(() => {
+        if (window.extensionDetector) {
+            window.extensionDetector.runAllDetectionMethods();
+            updateExtensionResults();
+            updateStats();
+        }
+    }, 100);
+    
+    console.log('❌ Simulated elements removed');
 }
 
 // Initialize the extension detector when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-    window.extensionDetector = new ExtensionDetector();
+    if (!window.extensionDetector) {
+        window.extensionDetector = new ExtensionDetector();
+    }
+    
+    // Set up filter tabs
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            filterExtensions(e.target.dataset.category);
+        });
+    });
+    
+    // Initialize results
+    updateExtensionResults();
+    updateStats();
 });
 
-// Auto-start detection after 2 seconds
-setTimeout(() => {
-    if (window.extensionDetector) {
-        window.extensionDetector.startDetection();
-    }
-}, 2000); 
+// Auto-start detection after page loads
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        startDetection();
+    }, 1000);
+}); 
