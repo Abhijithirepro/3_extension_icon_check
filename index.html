@@ -3,74 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Floating Element Detector</title>
+    <title>🔍 Extension Detection System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>🔍 Floating Element Detector</h1>
-        <p>This tool detects floating icons, sidebars, and overlays injected into the DOM</p>
+        <h1>🔍 Extension Detection System</h1>
+        <p>Advanced detection of browser extensions and AI assistants injected into the DOM</p>
     </header>
 
     <main>
         <section class="controls">
-            <h2>Controls</h2>
+            <h2>🎮 Detection Controls</h2>
             <div class="button-group">
-                <button id="startDetection" class="btn-primary">Start Detection</button>
-                <button id="stopDetection" class="btn-secondary">Stop Detection</button>
-                <button id="clearResults" class="btn-clear">Clear Results</button>
-                <button id="simulateFloating" class="btn-simulate">Simulate Floating Element</button>
+                <button id="startDetection" class="btn-primary">🚀 Start Detection</button>
+                <button id="stopDetection" class="btn-secondary">⏹️ Stop Detection</button>
+                <button id="clearResults" class="btn-clear">🧹 Clear Results</button>
+                <button id="exportData" class="btn-export">📥 Export Data</button>
             </div>
             
             <div class="options">
                 <label>
-                    <input type="checkbox" id="detectPosition" checked>
-                    Detect positioned elements (fixed, absolute, sticky)
+                    <input type="checkbox" id="detectDOM" checked>
+                    🌐 DOM Injection Detection
                 </label>
                 <label>
-                    <input type="checkbox" id="detectHighZIndex" checked>
-                    Detect high z-index elements (>100)
+                    <input type="checkbox" id="detectNetwork" checked>
+                    📡 Network Request Monitoring
                 </label>
                 <label>
-                    <input type="checkbox" id="detectOverflow" checked>
-                    Detect elements outside viewport
+                    <input type="checkbox" id="detectGlobals" checked>
+                    🔧 Global Variable Detection
+                </label>
+                <label>
+                    <input type="checkbox" id="detectCSS" checked>
+                    🎨 CSS Injection Analysis
+                </label>
+                <label>
+                    <input type="checkbox" id="detectShadowDOM" checked>
+                    👥 Shadow DOM Scanning
                 </label>
             </div>
         </section>
 
         <section class="results">
-            <h2>Detected Elements <span id="elementCount">(0)</span></h2>
-            <div id="detectedElements" class="element-list">
-                <p class="no-results">No floating elements detected yet. Click "Start Detection" to begin monitoring.</p>
+            <h2>📋 Detected Extensions <span id="extensionCount">(0)</span></h2>
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-category="all">All</button>
+                <button class="filter-tab" data-category="ai">AI Assistants</button>
+                <button class="filter-tab" data-category="productivity">Productivity</button>
+                <button class="filter-tab" data-category="security">Security</button>
+                <button class="filter-tab" data-category="developer">Developer</button>
+                <button class="filter-tab" data-category="other">Other</button>
+            </div>
+            <div id="detectedExtensions" class="extension-list">
+                <p class="no-results">No extensions detected yet. Click "Start Detection" to begin monitoring.</p>
             </div>
         </section>
 
         <section class="stats">
-            <h2>Detection Statistics</h2>
+            <h2>📊 Detection Statistics</h2>
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number" id="totalDetected">0</div>
                     <div class="stat-label">Total Detected</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" id="fixedElements">0</div>
-                    <div class="stat-label">Fixed Position</div>
+                    <div class="stat-number" id="aiExtensions">0</div>
+                    <div class="stat-label">AI Extensions</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" id="absoluteElements">0</div>
-                    <div class="stat-label">Absolute Position</div>
+                    <div class="stat-number" id="domInjections">0</div>
+                    <div class="stat-label">DOM Injections</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" id="highZIndexElements">0</div>
-                    <div class="stat-label">High Z-Index</div>
+                    <div class="stat-number" id="networkRequests">0</div>
+                    <div class="stat-label">Network Requests</div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>Monitor console for detailed detection logs</p>
+        <p>🔍 Monitor console for detailed detection logs | 📊 Data stored in localStorage</p>
     </footer>
+
+    <!-- Basic Detection Panel -->
+    <div id="basicPanel" class="detection-panel basic-panel">
+        <div class="panel-header">
+            <h3>🔍 Basic Detector</h3>
+            <button class="panel-toggle" data-panel="basicPanel">📌</button>
+        </div>
+        <div class="panel-content">
+            <div class="detection-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Active:</span>
+                    <span class="stat-value" id="basicStatus">OFF</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Found:</span>
+                    <span class="stat-value" id="basicCount">0</span>
+                </div>
+            </div>
+            <div id="basicResults" class="panel-results"></div>
+        </div>
+    </div>
+
+    <!-- Advanced Detection Panel -->
+    <div id="advancedPanel" class="detection-panel advanced-panel">
+        <div class="panel-header">
+            <h3>🚀 Advanced Detector</h3>
+            <button class="panel-toggle" data-panel="advancedPanel">📌</button>
+        </div>
+        <div class="panel-content">
+            <div class="detection-methods">
+                <div class="method-stat">
+                    <span class="method-label">DOM:</span>
+                    <span class="method-count" id="domCount">0</span>
+                </div>
+                <div class="method-stat">
+                    <span class="method-label">Network:</span>
+                    <span class="method-count" id="networkCount">0</span>
+                </div>
+                <div class="method-stat">
+                    <span class="method-label">Globals:</span>
+                    <span class="method-count" id="globalsCount">0</span>
+                </div>
+                <div class="method-stat">
+                    <span class="method-label">CSS:</span>
+                    <span class="method-count" id="cssCount">0</span>
+                </div>
+            </div>
+            <div id="advancedResults" class="panel-results"></div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
