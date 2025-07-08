@@ -3,138 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔍 Extension Detection System</title>
+    <title>AI Extension Detective | Advanced Browser Extension Scanner</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>🔍 Extension Detection System</h1>
-        <p>Advanced detection of browser extensions and AI assistants injected into the DOM</p>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>🕵️ AI Extension Detective</h1>
+            <p>Advanced detection system for AI browser extensions and floating widgets</p>
+        </div>
     </header>
 
-    <main>
-        <section class="controls">
-            <h2>🎮 Detection Controls</h2>
-            <div class="button-group">
-                <button id="startDetection" class="btn-primary">🚀 Start Detection</button>
-                <button id="stopDetection" class="btn-secondary">⏹️ Stop Detection</button>
-                <button id="clearResults" class="btn-clear">🧹 Clear Results</button>
-                <button id="exportData" class="btn-export">📥 Export Data</button>
-            </div>
-            
-            <div class="options">
-                <label>
-                    <input type="checkbox" id="detectDOM" checked>
-                    🌐 DOM Injection Detection
-                </label>
-                <label>
-                    <input type="checkbox" id="detectNetwork" checked>
-                    📡 Network Request Monitoring
-                </label>
-                <label>
-                    <input type="checkbox" id="detectGlobals" checked>
-                    🔧 Global Variable Detection
-                </label>
-                <label>
-                    <input type="checkbox" id="detectCSS" checked>
-                    🎨 CSS Injection Analysis
-                </label>
-                <label>
-                    <input type="checkbox" id="detectShadowDOM" checked>
-                    👥 Shadow DOM Scanning
-                </label>
-            </div>
-        </section>
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Control Panel -->
+            <section class="control-panel">
+                <div class="panel-header">
+                    <h2>Detection Controls</h2>
+                </div>
+                <div class="controls-grid">
+                    <button class="btn btn-primary" onclick="startDetection()">
+                        <span class="btn-icon">🔍</span>
+                        Quick Scan
+                    </button>
+                    <button class="btn btn-secondary" onclick="startAdvancedDetection()">
+                        <span class="btn-icon">🔬</span>
+                        Deep Scan
+                    </button>
+                    <button class="btn btn-warning" onclick="clearResults()">
+                        <span class="btn-icon">🗑️</span>
+                        Clear Results
+                    </button>
+                    <button class="btn btn-info" onclick="exportResults()">
+                        <span class="btn-icon">💾</span>
+                        Export Data
+                    </button>
+                </div>
+            </section>
 
-        <section class="results">
-            <h2>📋 Detected Extensions <span id="extensionCount">(0)</span></h2>
-            <div class="filter-tabs">
-                <button class="filter-tab active" data-category="all">All</button>
-                <button class="filter-tab" data-category="ai">AI Assistants</button>
-                <button class="filter-tab" data-category="productivity">Productivity</button>
-                <button class="filter-tab" data-category="security">Security</button>
-                <button class="filter-tab" data-category="developer">Developer</button>
-                <button class="filter-tab" data-category="other">Other</button>
-            </div>
-            <div id="detectedExtensions" class="extension-list">
-                <p class="no-results">No extensions detected yet. Click "Start Detection" to begin monitoring.</p>
-            </div>
-        </section>
+            <!-- Statistics Dashboard -->
+            <section class="stats-dashboard">
+                <div class="panel-header">
+                    <h2>Detection Statistics</h2>
+                    <div class="extension-count" id="extensionCount">0 extensions detected</div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🤖</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="aiCount">0</div>
+                            <div class="stat-label">AI Tools</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="productivityCount">0</div>
+                            <div class="stat-label">Productivity</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👨‍💻</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="developerCount">0</div>
+                            <div class="stat-label">Developer</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔒</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="securityCount">0</div>
+                            <div class="stat-label">Security</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <section class="stats">
-            <h2>📊 Detection Statistics</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" id="totalDetected">0</div>
-                    <div class="stat-label">Total Detected</div>
+            <!-- Detection Methods -->
+            <section class="detection-methods">
+                <div class="panel-header">
+                    <h2>Detection Methods</h2>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="aiExtensions">0</div>
-                    <div class="stat-label">AI Extensions</div>
+                <div class="methods-grid">
+                    <div class="method-card">
+                        <div class="method-icon">🏗️</div>
+                        <div class="method-content">
+                            <div class="method-count" id="domCount">0</div>
+                            <div class="method-label">DOM Elements</div>
+                        </div>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-icon">📋</div>
+                        <div class="method-content">
+                            <div class="method-count" id="manifestCount">0</div>
+                            <div class="method-label">Manifest</div>
+                        </div>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-icon">🌐</div>
+                        <div class="method-content">
+                            <div class="method-count" id="globalCount">0</div>
+                            <div class="method-label">Global Objects</div>
+                        </div>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-icon">🔍</div>
+                        <div class="method-content">
+                            <div class="method-count" id="elementCount">0</div>
+                            <div class="method-label">Elements</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="domInjections">0</div>
-                    <div class="stat-label">DOM Injections</div>
+            </section>
+
+            <!-- Testing Tools -->
+            <section class="testing-tools">
+                <div class="panel-header">
+                    <h2>Testing & Simulation</h2>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="networkRequests">0</div>
-                    <div class="stat-label">Network Requests</div>
+                <div class="tools-grid">
+                    <button class="btn btn-simulate" onclick="createSimulatedFloating()">
+                        <span class="btn-icon">🎯</span>
+                        Simulate Floating Widget
+                    </button>
+                    <button class="btn btn-simulate" onclick="createSimulatedSidebar()">
+                        <span class="btn-icon">📐</span>
+                        Simulate AI Sidebar
+                    </button>
+                    <button class="btn btn-danger" onclick="removeSimulatedElements()">
+                        <span class="btn-icon">❌</span>
+                        Remove Simulations
+                    </button>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section">
+                <div class="panel-header">
+                    <h2>Detected Extensions</h2>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-category="all">All</button>
+                        <button class="filter-tab" data-category="ai">AI Tools</button>
+                        <button class="filter-tab" data-category="productivity">Productivity</button>
+                        <button class="filter-tab" data-category="developer">Developer</button>
+                        <button class="filter-tab" data-category="security">Security</button>
+                        <button class="filter-tab" data-category="other">Other</button>
+                    </div>
+                </div>
+                <div class="extension-list" id="detectionResults">
+                    <div class="no-results">
+                        <div class="no-results-icon">🔍</div>
+                        <h3>No extensions detected yet</h3>
+                        <p>Click "Quick Scan" or "Deep Scan" to start detecting AI extensions</p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
-    <footer>
-        <p>🔍 Monitor console for detailed detection logs | 📊 Data stored in localStorage</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 AI Extension Detective - Advanced Browser Security Scanner</p>
+        </div>
     </footer>
 
-    <!-- Basic Detection Panel -->
-    <div id="basicPanel" class="detection-panel basic-panel">
+    <!-- Detection Panels (Floating) -->
+    <div class="detection-panel basic-panel" id="basicPanel">
         <div class="panel-header">
-            <h3>🔍 Basic Detector</h3>
-            <button class="panel-toggle" data-panel="basicPanel">📌</button>
+            <h3>Live Detection</h3>
+            <button class="panel-toggle" onclick="togglePanel('basicPanel')">−</button>
         </div>
         <div class="panel-content">
-            <div class="detection-stats">
-                <div class="stat-item">
-                    <span class="stat-label">Active:</span>
-                    <span class="stat-value" id="basicStatus">OFF</span>
+            <div class="live-stats">
+                <div class="live-stat">
+                    <span class="live-label">Total:</span>
+                    <span class="live-value" id="totalCount">0</span>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-label">Found:</span>
-                    <span class="stat-value" id="basicCount">0</span>
-                </div>
-            </div>
-            <div id="basicResults" class="panel-results"></div>
-        </div>
-    </div>
-
-    <!-- Advanced Detection Panel -->
-    <div id="advancedPanel" class="detection-panel advanced-panel">
-        <div class="panel-header">
-            <h3>🚀 Advanced Detector</h3>
-            <button class="panel-toggle" data-panel="advancedPanel">📌</button>
-        </div>
-        <div class="panel-content">
-            <div class="detection-methods">
-                <div class="method-stat">
-                    <span class="method-label">DOM:</span>
-                    <span class="method-count" id="domCount">0</span>
-                </div>
-                <div class="method-stat">
-                    <span class="method-label">Network:</span>
-                    <span class="method-count" id="networkCount">0</span>
-                </div>
-                <div class="method-stat">
-                    <span class="method-label">Globals:</span>
-                    <span class="method-count" id="globalsCount">0</span>
-                </div>
-                <div class="method-stat">
-                    <span class="method-label">CSS:</span>
-                    <span class="method-count" id="cssCount">0</span>
+                <div class="live-stat">
+                    <span class="live-label">AI:</span>
+                    <span class="live-value" id="liveAiCount">0</span>
                 </div>
             </div>
-            <div id="advancedResults" class="panel-results"></div>
+            <div class="live-status">
+                <div class="status-indicator" id="scanStatus">Ready</div>
+            </div>
         </div>
     </div>
 
